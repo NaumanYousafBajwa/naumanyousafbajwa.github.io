@@ -1,4 +1,5 @@
 <?php
+try{
 if(isset($_POST) && !empty($_POST)){
 	$full_name = (isset($_POST['full_name']))?$_POST['full_name']:'';
 	$first_name = (isset($_POST['first_name']))?$_POST['first_name']:'';
@@ -23,11 +24,11 @@ if(isset($_POST) && !empty($_POST)){
 	}
 	
 	if($sendMessage != ''){
-		$fromEmail = 'support@online_resume.com';
+		$fromEmail = 'support@naumanyousafbajwa.github.io';
 		$toEmail = 'naumanyousafbajwa@gmail.com';
 		
 		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:application/json; charset=UTF-8" . "\r\n";
+		$headers .= "Content-type: application/json; charset=UTF-8" . "\r\n";
 		$headers .= "From: <$fromEmail>" . "\r\n";
 
 		if(mail($toEmail , $mailSubject , $sendMessage , $headers )){
@@ -40,6 +41,9 @@ if(isset($_POST) && !empty($_POST)){
 	}
 }else{
 	echo 0;
+}
+}catch(\Exception $e){
+	 
 }
 
 ?>
